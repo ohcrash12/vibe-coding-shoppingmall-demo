@@ -1,0 +1,29 @@
+{
+  "name": "shopping-mall-server",
+  "description": "STANDFAST shopping mall API",
+  "env": {
+    "MONGODB_ATLAS_URL": {
+      "description": "MongoDB Atlas connection string"
+    },
+    "JWT_SECRET": {
+      "description": "JWT signing secret"
+    },
+    "NODE_ENV": {
+      "description": "Node environment",
+      "value": "production"
+    },
+    "PORTONE_IMP_KEY": {
+      "description": "PortOne REST API Key",
+      "required": false
+    },
+    "PORTONE_IMP_SECRET": {
+      "description": "PortOne REST API Secret",
+      "required": false
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
