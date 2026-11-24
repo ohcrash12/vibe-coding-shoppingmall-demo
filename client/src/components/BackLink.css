@@ -1,0 +1,36 @@
+.back-link-wrap {
+  padding: 1rem clamp(1rem, 3vw, 2.5rem) 0.35rem;
+}
+
+.back-link-wrap--flush {
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  margin-bottom: 0.85rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid #1a1a1a;
+  background: #fff;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.back-link:hover {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.back-link__arrow {
+  font-size: 1rem;
+  line-height: 1;
+}
