@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { apiUrl } from "../api";
 import "./Home.css";
 import {
@@ -135,11 +136,14 @@ function Home() {
           decoding="async"
         />
         <div className="home__hero-overlay" />
-        <h1 className="home__hero-title">COLD WEATHER ARCHIVES.</h1>
-        <div className="home__hero-dots" aria-hidden="true">
-          <span className="home__hero-dot is-active" />
-          <span className="home__hero-dot" />
-          <span className="home__hero-dot" />
+        <div className="home__hero-copy">
+          <h1 className="home__hero-title">COLD WEATHER ARCHIVES.</h1>
+          <Link
+            to={user?.user_type === "subscriber" ? "/subscriber" : "/subscribe"}
+            className="home__hero-cta"
+          >
+            구독 혜택 받기
+          </Link>
         </div>
       </section>
 

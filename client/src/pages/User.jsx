@@ -100,6 +100,24 @@ function User() {
               <dd>{user.email}</dd>
             </div>
             <div>
+              <dt>회원 유형</dt>
+              <dd>
+                {user.user_type === "admin"
+                  ? "관리자"
+                  : user.user_type === "subscriber"
+                    ? "구독자"
+                    : "일반 회원"}
+              </dd>
+            </div>
+            {user.user_type === "subscriber" && user.subscriptionExpiresAt ? (
+              <div>
+                <dt>구독 만료일</dt>
+                <dd>
+                  {new Date(user.subscriptionExpiresAt).toLocaleDateString("ko-KR")}
+                </dd>
+              </div>
+            ) : null}
+            <div>
               <dt>주소</dt>
               <dd>{user.address || "등록된 주소가 없습니다."}</dd>
             </div>
@@ -109,6 +127,9 @@ function User() {
         <div className="user-page__actions">
           <Link to="/orders" className="user-page__orders-btn">
             주문 내역
+          </Link>
+          <Link to="/subscriber" className="user-page__orders-btn">
+            구독자 페이지
           </Link>
         </div>
       </main>

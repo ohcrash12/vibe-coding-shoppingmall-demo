@@ -1,0 +1,300 @@
+.subscribe__layout {
+  align-items: start;
+}
+
+.subscribe__benefits {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.subscribe__benefits li {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.subscribe__benefits li:first-child {
+  padding-top: 0;
+}
+
+.subscribe__benefits li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.subscribe__benefit-title {
+  margin: 0 0 0.3rem;
+  font-family: "Oswald", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.subscribe__benefit-copy {
+  margin: 0;
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.subscribe__plan {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #1a1a1a;
+  background: #fafafa;
+}
+
+.subscribe__plan-name {
+  margin: 0 0 0.3rem;
+  font-weight: 700;
+}
+
+.subscribe__plan-note {
+  margin: 0;
+  color: #6b6b6b;
+  font-size: 0.82rem;
+}
+
+.subscribe__plan-price {
+  margin: 0;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.subscribe__complete-benefits {
+  margin: 0 0 1.5rem;
+  padding-left: 1.1rem;
+  color: #444;
+  line-height: 1.7;
+}
+
+/* Member subscriber portal */
+.member-sub__gate {
+  max-width: 36rem;
+}
+
+.member-sub__gate-copy {
+  margin: 0 0 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.member-sub__gate-list {
+  margin: 0 0 1.25rem;
+  padding-left: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+.member-sub {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.member-sub__kpi {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.member-sub__card {
+  padding: 1.15rem 1.2rem;
+  background: #fff;
+  border: 1px solid #e4e4e4;
+}
+
+.member-sub__label {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b6b6b;
+}
+
+.member-sub__value {
+  margin: 0 0 0.35rem;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.member-sub__note {
+  margin: 0;
+  color: #6b6b6b;
+  font-size: 0.82rem;
+}
+
+.member-sub__progress {
+  margin-top: 0.75rem;
+  height: 0.35rem;
+  border-radius: 999px;
+  background: #ececec;
+  overflow: hidden;
+}
+
+.member-sub__progress span {
+  display: block;
+  height: 100%;
+  background: #1a1a1a;
+}
+
+.member-sub__split {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1rem;
+}
+
+.member-sub__panel-sub {
+  margin: -0.4rem 0 1rem;
+  color: #6b6b6b;
+  font-size: 0.85rem;
+}
+
+.member-sub__coordi-list,
+.member-sub__coupons,
+.member-sub__products {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.member-sub__coordi {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr);
+  gap: 0.85rem;
+  padding: 0.85rem;
+  border: 1px solid #e8e8e8;
+  background: #fafafa;
+}
+
+.member-sub__tones {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.member-sub__tones span {
+  display: block;
+  min-height: 1.55rem;
+  border-radius: 0.2rem;
+}
+
+.member-sub__tag {
+  margin: 0 0 0.2rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b6b6b;
+}
+
+.member-sub__coordi h3 {
+  margin: 0 0 0.3rem;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.05rem;
+}
+
+.member-sub__coordi p:last-child {
+  margin: 0;
+  color: #555;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.member-sub__coupon {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  border: 1px dashed #cfcfcf;
+  overflow: hidden;
+  background: linear-gradient(90deg, #1a1a1a 0 7.5rem, #fff 7.5rem);
+}
+
+.member-sub__coupon-amount {
+  display: grid;
+  place-content: center;
+  gap: 0.15rem;
+  padding: 0.85rem 0.5rem;
+  color: #fff;
+  text-align: center;
+}
+
+.member-sub__coupon-amount span {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  opacity: 0.75;
+}
+
+.member-sub__coupon-amount strong {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.1rem;
+}
+
+.member-sub__coupon-meta {
+  display: grid;
+  align-content: center;
+  gap: 0.2rem;
+  padding: 0.85rem 1rem;
+  background: #fff;
+}
+
+.member-sub__coupon-meta p {
+  margin: 0;
+  font-size: 0.88rem;
+}
+
+.member-sub__coupon-meta p:last-child {
+  color: #6b6b6b;
+  font-size: 0.78rem;
+}
+
+.member-sub__products {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.member-sub__product {
+  display: grid;
+  gap: 0.55rem;
+  padding: 0.7rem;
+  border: 1px solid #e4e4e4;
+  background: #fff;
+}
+
+.member-sub__product img,
+.member-sub__thumb-empty {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: #f0f0f0;
+}
+
+.member-sub__product a {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.member-sub__product a:hover {
+  text-decoration: underline;
+}
+
+.member-sub__product p {
+  margin: 0.15rem 0;
+  color: #6b6b6b;
+  font-size: 0.78rem;
+}
+
+@media (max-width: 960px) {
+  .member-sub__kpi,
+  .member-sub__split,
+  .member-sub__products {
+    grid-template-columns: 1fr;
+  }
+}

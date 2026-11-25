@@ -5,12 +5,17 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Admin from "./pages/admin/Admin";
 import AdminProductNew from "./pages/admin/AdminProductNew";
+import AdminSubscribers from "./pages/admin/AdminSubscribers";
 import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
 import Order from "./pages/Order";
 import OrderComplete from "./pages/OrderComplete";
 import OrderFail from "./pages/OrderFail";
 import OrderList from "./pages/OrderList";
+import Subscribe from "./pages/Subscribe";
+import SubscribeComplete from "./pages/SubscribeComplete";
+import SubscribeFail from "./pages/SubscribeFail";
+import SubscriberPage from "./pages/SubscriberPage";
 import User from "./pages/User";
 import "./App.css";
 
@@ -26,9 +31,14 @@ function App() {
           <Route path="/order/complete" element={<OrderComplete />} />
           <Route path="/order/fail" element={<OrderFail />} />
           <Route path="/orders" element={<OrderList />} />
+          <Route path="/subscriber" element={<SubscriberPage />} />
+          <Route path="/subscribe" element={<Subscribe />} />
+          <Route path="/subscribe/complete" element={<SubscribeComplete />} />
+          <Route path="/subscribe/fail" element={<SubscribeFail />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/subscribers" element={<AdminSubscribers />} />
           <Route path="/admin/products/new" element={<AdminProductNew />} />
           <Route path="/admin/products/:id" element={<AdminProductNew />} />
           <Route path="/user" element={<User />} />

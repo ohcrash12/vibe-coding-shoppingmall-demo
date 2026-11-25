@@ -5,11 +5,14 @@ import { IconBag, IconHeart, IconSearch, IconUser } from "./HomeIcons";
 
 function HomeNavbar({ user, onLogout }) {
   const isAdmin = user?.user_type === "admin";
+  const isSubscriber = user?.user_type === "subscriber";
   const { cartCount, refreshCartCount } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
 
-  const welcomeLabel = isAdmin ? "관리자님 Welcome" : `${user?.name}님 Welcome`;
+  const welcomeLabel = isAdmin
+    ? "관리자님 Welcome"
+    : `${user?.name}님 Welcome`;
 
   useEffect(() => {
     if (!menuOpen) return undefined;
@@ -38,11 +41,7 @@ function HomeNavbar({ user, onLogout }) {
 
   return (
     <header className="home__nav">
-      <nav className="home__nav-links" aria-label="Primary">
-        <Link to="/#new-arrivals">HOME</Link>
-        <Link to="/#categories">SHOP</Link>
-        <Link to="/#down">BRAND</Link>
-      </nav>
+      <div className="home__nav-spacer" aria-hidden="true" />
 
       <Link to="/" className="home__logo">
         STANDFAST
@@ -67,6 +66,11 @@ function HomeNavbar({ user, onLogout }) {
                 {isAdmin ? (
                   <Link to="/admin" className="home__admin-link">
                     Admin
+                  </Link>
+                ) : null}
+                {isSubscriber ? (
+                  <Link to="/subscriber" className="home__subscriber-badge">
+                    구독자
                   </Link>
                 ) : null}
               </div>

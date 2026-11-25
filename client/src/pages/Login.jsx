@@ -183,15 +183,6 @@ function Login() {
             멤버십 혜택 보러가기
           </button>
         </section>
-
-        <div className="login-social">
-          <button type="button" className="login-social__btn">
-            네이버 로그인
-          </button>
-          <button type="button" className="login-social__btn">
-            카카오 로그인
-          </button>
-        </div>
       </main>
 
       <footer className="login-page__footer">

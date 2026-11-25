@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { apiUrl } from "../../api";
 import BackLink from "../../components/BackLink";
-import AdminShell, { MENU } from "./AdminShell";
+import AdminShell, { MENU, countNewOrders } from "./AdminShell";
 import "./Admin.css";
 
 const KPIS = [
@@ -196,9 +196,13 @@ function Admin() {
 
   useEffect(() => {
     if (location.state?.menu) {
+      if (location.state.menu === "subscribers") {
+        navigate("/admin/subscribers", { replace: true });
+        return;
+      }
       setActiveMenu(location.state.menu);
     }
-  }, [location.state]);
+  }, [location.state, navigate]);
 
   useEffect(() => {
     const token = sessionStorage.getItem("token");
@@ -286,7 +290,7 @@ function Admin() {
   }, [activeMenu, location.key, page]);
 
   useEffect(() => {
-    if (activeMenu !== "orders") return;
+    if (!user) return;
 
     const token = sessionStorage.getItem("token");
     if (!token) return;
@@ -294,8 +298,11 @@ function Admin() {
     const controller = new AbortController();
 
     const fetchOrders = async () => {
-      setOrdersLoading(true);
-      setOrdersError("");
+      // 목록 화면일 때만 로딩 표시 (배지용 조회는 조용히)
+      if (activeMenu === "orders") {
+        setOrdersLoading(true);
+        setOrdersError("");
+      }
       try {
         const response = await fetch(apiUrl("/orders"), {
           headers: { Authorization: `Bearer ${token}` },
@@ -305,7 +312,9 @@ function Admin() {
 
         if (!response.ok) {
           setOrders([]);
-          setOrdersError(data.message || "주문 목록을 불러오지 못했습니다.");
+          if (activeMenu === "orders") {
+            setOrdersError(data.message || "주문 목록을 불러오지 못했습니다.");
+          }
           return;
         }
 
@@ -313,15 +322,19 @@ function Admin() {
       } catch (err) {
         if (err.name === "AbortError") return;
         setOrders([]);
-        setOrdersError("주문 목록을 불러오지 못했습니다.");
+        if (activeMenu === "orders") {
+          setOrdersError("주문 목록을 불러오지 못했습니다.");
+        }
       } finally {
-        setOrdersLoading(false);
+        if (activeMenu === "orders") {
+          setOrdersLoading(false);
+        }
       }
     };
 
     fetchOrders();
     return () => controller.abort();
-  }, [activeMenu, location.key]);
+  }, [user, activeMenu, location.key]);
 
   const handleOrderStatusChange = async (orderId, nextStatus) => {
     if (!orderId || !nextStatus || updatingOrderId) return;
@@ -474,7 +487,12 @@ function Admin() {
   });
 
   return (
-    <AdminShell user={user} activeMenu={activeMenu} onMenuChange={setActiveMenu}>
+    <AdminShell
+      user={user}
+      activeMenu={activeMenu}
+      onMenuChange={setActiveMenu}
+      newOrderCount={countNewOrders(orders)}
+    >
       <BackLink to="/" label="Back to shop" className="back-link-wrap--flush" />
       {activeMenu === "dashboard" ? (
         <>

@@ -22,15 +22,35 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    // customer: 일반 회원, subscriber: 구독자, admin: 관리자
     user_type: {
       type: String,
       required: true,
-      enum: ["customer", "admin"],
+      enum: {
+        values: ["customer", "subscriber", "admin"],
+        message: "회원 유형은 customer, subscriber, admin 중 하나여야 합니다.",
+      },
       default: "customer",
     },
     address: {
       type: String,
       default: "",
+    },
+    // 구독 결제일
+    subscriptionPaidAt: {
+      type: Date,
+      default: null,
+    },
+    // 구독 만료일 (결제 후 30일)
+    subscriptionExpiresAt: {
+      type: Date,
+      default: null,
+    },
+    // 누적 구독 횟수
+    subscriptionCount: {
+      type: Number,
+      default: 0,
+      min: 0,
     },
   },
   {
